@@ -50,12 +50,6 @@ management:
         include: hystrix.stream
 
 
-eureka:
-  instance:
-    hostname: gateway.herokuapp.com
-    homePageUrl: https://${eureka.instance.hostName}/
-  client:
-    serviceUrl:
-      defaultZone: http://eureka.herokuapp.com/eureka/
+
 
 
