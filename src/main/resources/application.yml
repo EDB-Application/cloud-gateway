@@ -16,15 +16,15 @@ spring:
               args:
                 name: USER-SERVICE
                 fallbackuri: forward:/userServiceFallBack
-        - id: DEPARTMENT-SERVICE
-          uri: lb://DEPARTMENT-SERVICE
+        - id: TRANSFERT-SERVICE
+          uri: lb://TRANSFERT-SERVICE
           predicates:
-            - Path=/departments/**
+            - Path=/transferts/**
           filters:
             - name: CircuitBreaker
               args:
-                name: DEPARTMENT-SERVICE
-                fallbackuri: forward:/departmentServiceFallBack
+                name: TRANSFERT-SERVICE
+                fallbackuri: forward:/transfertServiceFallBack
         - id: CLIENT-SERVICE
           uri: lb://CLIENT-SERVICE
           predicates:
@@ -34,15 +34,7 @@ spring:
               args:
                 name: CLIENT-SERVICE
                 fallbackuri: forward:/clientsServiceFallBack
-        - id: TRANSFERT-SERVICE
-          uri: lb://TRANSFERT-SERVICE
-          predicates:
-              - Path=/transferts/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: TRANSFERTS-SERVICE
-                fallbackuri: forward:/clientsServiceFallBack
+
 hystrix:
   command:
     fallbackcmd:
