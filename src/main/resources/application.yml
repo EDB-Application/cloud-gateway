@@ -56,6 +56,6 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: https://eureka.herokuapp.com/eureka/
+      defaultZone: https://service-registry-application.herokuapp.com/
 
 
