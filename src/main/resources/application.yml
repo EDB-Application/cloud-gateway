@@ -49,13 +49,5 @@ management:
       exposure:
         include: hystrix.stream
 
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    healthcheck:
-      enabled: true
-    serviceUrl:
-      defaultZone: https://eureka.herokuapp.com/eureka/
 
 
