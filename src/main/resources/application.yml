@@ -34,6 +34,15 @@ spring:
               args:
                 name: CLIENT-SERVICE
                 fallbackuri: forward:/clientsServiceFallBack
+        - id: TRANSFERT-SERVICE
+            uri: lb://TRANSFERT-SERVICE
+            predicates:
+              - Path=/transferts/**
+            filters:
+              - name: CircuitBreaker
+                args:
+                  name: TRANSFERTS-SERVICE
+                  fallbackuri: forward:/clientsServiceFallBack
 hystrix:
   command:
     fallbackcmd:
