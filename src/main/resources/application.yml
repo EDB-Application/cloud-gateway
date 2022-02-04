@@ -49,12 +49,6 @@ management:
       exposure:
         include: hystrix.stream
 
-eureka:
-  instance:
-    hostname: gateway.herokuapp.com
-    homePageUrl: https://${eureka.instance.hostName}/
-  client:
-    serviceUrl:
-      defaultZone: https://eureka.herokuapp.com/eureka/
+
 
 
