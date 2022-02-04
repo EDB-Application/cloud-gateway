@@ -1,5 +1,5 @@
 server:
-  port: 9191
+  port: ${PORT}
 
 spring:
   application:
@@ -34,6 +34,34 @@ spring:
               args:
                 name: CLIENT-SERVICE
                 fallbackuri: forward:/clientsServiceFallBack
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone : https://service-registry-application.herokuapp.com/eureka/
+  instance:
+    hostname: cloud-gateway-application.herokuapp.com
+    homePageUrl: http://${eureka.instance.hostname}/
+    secure-port-enabled: true
+    non-secure-port-enabled: false
+    non-secure-port: 80
+    securePort: 443
 
 
 
