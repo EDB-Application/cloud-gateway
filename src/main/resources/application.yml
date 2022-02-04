@@ -50,12 +50,11 @@ management:
         include: hystrix.stream
 
 eureka:
+  instance:
+    hostname: gateway.herokuapp.com
+    homePageUrl: https://${eureka.instance.hostName}/
   client:
-    fetch-registry: true
-    register-with-eureka: true
-    healthcheck:
-      enabled: true
     serviceUrl:
-      defaultZone: https://service-registry-application.herokuapp.com/
+      defaultZone: https://eureka.herokuapp.com/eureka/
 
 
