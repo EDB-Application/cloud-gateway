@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8080}
+  port: ${PORT:9191}
 
 spring:
   application:
@@ -49,13 +49,5 @@ management:
       exposure:
         include: hystrix.stream
 
-
-eureka:
-  instance:
-    hostname: gateway.herokuapp.com
-    homePageUrl: https://${eureka.instance.hostName}/
-  client:
-    serviceUrl:
-      defaultZone: http://service-registry-application.herokuapp/eureka/
 
 
